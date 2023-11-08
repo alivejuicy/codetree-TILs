@@ -31,13 +31,13 @@ public class Main {
     private static final String SNOW = "Snow";
     private static final String RAIN = "Rain";
     static int minY = 3000;
-    static int minM = 3000;
-    static int minD = 3000;
+    static int minM = 12;
+    static int minD = 31;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        sb.append("start");
+        
         //가장 근시에 비오는 날 찾기
         int n = Integer.parseInt(br.readLine());
 
@@ -57,8 +57,8 @@ public class Main {
                 sb.append(d).append(" ").append(w);
             }
         }
-        if(minM<10) System.out.print(minY+"-"+0+minM+"-"+minD+" "+sb);
-        else System.out.print(minY+"-"+minM+"-"+minD+" "+sb);
+        
+        System.out.printf("%04d-%02d-%02d %s%n", minY, minM, minD, sb);
     }
 
     private static boolean compare(int[] tmp){
