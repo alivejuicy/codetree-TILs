@@ -30,7 +30,7 @@ public class Main {
             d2 += month[i];
         }
 
-        return d2 - d1 + 1;
+        return Math.abs(d2 - d1 + 1);
     }
 
 }
