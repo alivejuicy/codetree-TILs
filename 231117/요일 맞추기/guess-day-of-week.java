@@ -16,21 +16,30 @@ public class Main {
 
         int date = calc(m1, d1, m2, d2);
 
+
         System.out.println(sevenDays[date % 7]);
        
 
     }
     private static int calc(int m1, int d1, int m2, int d2){
-
+        
+        int start = d1;
+        int end = d2;
         for(int i =0; i<m1; i++){
-            d1 += month[i];
+            start += month[i];
         }
 
         for(int i =0; i<m2; i++){
-            d2 += month[i];
+            end += month[i];
         }
 
-        return Math.abs(d2 - d1 + 1);
+        int ans = end - start;
+        
+        while(ans < 0){
+            ans+=7;
+        }
+
+        return ans;
     }
 
 }
