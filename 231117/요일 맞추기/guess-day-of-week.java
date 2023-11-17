@@ -39,7 +39,7 @@ public class Main {
             ans+=7;
         }
 
-        return ans;
+        return ans+1;
     }
 
 }
