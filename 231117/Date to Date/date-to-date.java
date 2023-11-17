@@ -21,7 +21,7 @@ public class Main {
         for(int i = 0; i<=m2; i++){
             d2 += arr[i];
         }
-
-        System.out.println(d2-d1);
+        if(d1==d2) System.out.println(1);
+        else System.out.println(d2-d1);
     }
 }
