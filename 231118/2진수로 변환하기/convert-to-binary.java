@@ -8,7 +8,7 @@ public class Main {
         System.out.println(calc(n));
     }
 
-    private static int calc(int n){
+    private static String calc(int n){
         int[] arr = new int[100000];
         int cnt = 0;
 
@@ -25,8 +25,8 @@ public class Main {
         for(int i =cnt-1; i >= 0; i--){
             sb.append(arr[i]);
         }
-        int tmp = Integer.parseInt(sb.toString());
-        return tmp;
+        
+        return sb.toString();
     }
     
 }
