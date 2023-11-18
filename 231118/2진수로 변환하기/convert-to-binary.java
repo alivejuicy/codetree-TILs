@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         System.out.println(calc(n));
@@ -22,7 +22,7 @@ public class Main {
         }
 
         StringBuilder sb = new StringBuilder();
-        for(int i =cnt-1; i>=0; i--){
+        for(int i =cnt-1; i >= 0; i--){
             sb.append(arr[i]);
         }
         int tmp = Integer.parseInt(sb.toString());
