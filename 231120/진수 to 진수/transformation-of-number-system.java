@@ -15,7 +15,7 @@ public class Main {
         b = Integer.parseInt(st.nextToken());
         n = br.readLine();
         casting();
-        
+
         System.out.println(answer);
     }
 
@@ -30,7 +30,7 @@ public class Main {
         int index = 0;
 
         while(true){
-            if(num < 2){
+            if(num < b){
                 arr[index++] = num;
                 break;
             }
