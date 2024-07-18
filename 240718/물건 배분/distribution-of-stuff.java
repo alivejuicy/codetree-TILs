@@ -22,15 +22,15 @@ public class Main {
         System.out.println(ans+1);
     }
     private static void solution(){
-        Arrays.sort(arr);
         ans = 0;
         int sum = 0;
         for(int i =0; i<arr.length; i++){
-            if(sum+arr[i] >= m) {
+            if(sum+arr[i] > m) {
                 ans++;
-                sum=0;
+                sum = arr[i];
+            }else{
+             sum += arr[i];
             }
-            sum += arr[i];
         }
     }
 }
