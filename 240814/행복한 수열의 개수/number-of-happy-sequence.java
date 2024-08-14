@@ -38,22 +38,28 @@ public class Main {
         int happy = 0;
         for(int i = 1; i<N; i++){
             if(arr[start][i-1] == arr[start][i] ) happy++;
+            else{
+                if(happy < M-1) happy = 0;
+            }
         }
         if(happy >= M-1){
             return 1;
         }
-
         return 0;
     }
     private static int getCol(int start){
         int happy = 0;
         for(int i = 1; i<N; i++){
-            if(arr[i-1][start] == arr[i][start] ) happy++;
+            if(arr[i-1][start] == arr[i][start]) {
+                happy++;
+            }
+            else{
+                if(happy < M-1) happy = 0;
+            }
         }
         if(happy >= M-1){
             return 1;
         }
-
         return 0;
     }
 }
