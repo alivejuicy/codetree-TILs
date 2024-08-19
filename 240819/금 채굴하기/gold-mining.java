@@ -23,7 +23,7 @@ public class Main {
         int ans = 0;
         for(int i= 0; i<N; i++){
             for(int j =0; j<N; j++){
-                for(int k=0; k<2*(N-1); k++){ // N*N 좌표를 모두 포함시키기 위해
+                for(int k=0; k<=2*(N-1); k++){ // N*N 좌표를 모두 포함시키기 위해
                     int gold = getNumOfGold(i,j,k);
                     if(gold * M >= getPrice(k)){
                         ans = Math.max(ans, gold);
