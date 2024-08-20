@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        K = sc.nextInt();
-        N = sc.nextInt();
-        numArr = new int[K];
+        K = sc.nextInt(); // 1부터 K 중에서
+        N = sc.nextInt(); // N번 뽑음
+        numArr = new int[N];
         getSolution(0);
     }
 
