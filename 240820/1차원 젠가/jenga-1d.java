@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static final int BLOCK = -1;
     static int n;
     static int[] arr;
     static int[] temp;
     static StringBuilder sb = new StringBuilder();
+    static int arrIndex;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,6 +14,7 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         arr = new int[n];
         temp = new int[n];
+        arrIndex = n;
 
         for(int i=0; i<n; i++){
             arr[i] = Integer.parseInt(br.readLine());
@@ -25,37 +26,33 @@ public class Main {
             int e1 = Integer.parseInt(st.nextToken());
             setSolution(s1, e1);
         }
+
         getSolution();
-        
-        System.out.println(sb.toString());
     }
 
     private static void setSolution(int s, int e){
         int index = 0;
 
-        for(int i=s-1; i<=e-1; i++){
-            arr[i] = BLOCK;
-        }
-
-        for(int i =0; i<n; i++){
-            if(arr[i] != BLOCK) {
-                temp[index] = arr[i];
-                index++;
+        for(int i =0; i < arrIndex; i++){
+            if(i< s-1 || i > e-1){ // 시작점과 끝점을 제외한 숫자만
+                temp[index++] = arr[i]; //temp 배열에 할당한다.
             }
         }
-        arr = temp;       
+        for(int i=0; i<index; i++){
+            arr[i] = temp[i]; // temp 내 요소를 arr에 재할당해주고
+        }
+
+        arrIndex = index; // index 길이를 조절한다.
     }
 
     private static void getSolution(){
-        int cnt = 0;
-        for(int i = arr.length-1; i>=0; i--){
-            if(arr[i] != 0){
-                sb.append(arr[i]).append("\n");
-                cnt++;
-            }
-        }
-        sb.append(cnt);
-        sb.reverse();
+        sb.append(arrIndex).append("\n");
+
+       for(int i =0; i<arrIndex; i++){
+            sb.append(arr[i]).append("\n");
+       }
+
+       System.out.println(sb.toString());
     }
 }
 
