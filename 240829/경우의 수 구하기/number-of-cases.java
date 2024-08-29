@@ -7,27 +7,26 @@ public class Main {
     static Map<String, List<String>> hm = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
-        // 여기에 코드를 작성해주세요.
+        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseint(br.readLine());
+        n = Integer.parseInt(br.readLine());
 
         for(int i =0; i<n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             String element = st.nextToken();
             String group = st.nextToken();
 
-            hm.put(group, new ArrayList<>());
+            hm.putIfAbsent(group, new ArrayList<>());
             hm.get(group).add(element);
-
-            
         }
 
         answer = 1;
+
         for(String group : hm.keySet()){
             int len = hm.get(group).size();
-            answer *= len;
+            answer *= (len+1);
         }
-
+        answer -=1;
         System.out.println(answer);
 
     }
