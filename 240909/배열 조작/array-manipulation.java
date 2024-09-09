@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
     static String P;
     static int n;
-    static Queue<Integer> que = new ArrayDeque<>();
+    static Deque<Integer> que = new ArrayDeque<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         P = br.readLine();
@@ -17,27 +17,36 @@ public class Main {
         getSolution();
     }
     private static void getSolution(){
+        boolean reverse = false;
         try{
             for(int i= 0; i< P.length(); i++){
                 char c = P.charAt(i);
                 if(c == 'R'){
-                    List<Integer> al = new ArrayList<>(que);
-                    Collections.reverse(al);
-                    que.clear();
-                    que.addAll(al);
+                   reverse = !reverse;
+
                 }else if(c == 'D'){
-                    que.poll();
-                }else{
-                    throw new Exception();
+                    if(que.isEmpty()){
+                        throw new Exception();
+                    }
+                    if(reverse){
+                        que.pollLast();
+                    }else{
+                        que.pollFirst();
+                    }
                 }
             }
         }catch(Exception ex){
             System.out.println("error");
             return;
         }
+
         StringBuilder sb = new StringBuilder();
         while(!que.isEmpty()){
-            sb.append(que.poll()).append(" ");
+            if(reverse){
+                sb.append(que.pollLast()).append(" ");
+            }else{
+                sb.append(que.pollFirst()).append(" ");
+            }
         }
 
         System.out.println(sb.toString());
